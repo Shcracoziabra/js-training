@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			I learn JS
+		</title>
+	</head>
+	<body>
+		<p>JavaScript Note for Profs. Stopped at the page 40. Trigonometry</p>
+	</body>
+
+	<script>
+			var element = document.createElement('div');
+			element.textContent = "Hello, world!";
+			document.body.appendChild(element);
+
+			var canvas = document.createElement('canvas');
+			canvas.width = 500;
+			canvas.height = 250;
+			var ctx = canvas.getContext('2d');
+			ctx.font = '30px Cursive';
+			ctx.fillText('Hello, people!', 50, 50);
+			document.body.appendChild(canvas);
+
+			var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+			svg.width = 50;
+			svg.height = 50;
+			var text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+			text.setAttribute('x', '50');
+			text.setAttribute('y', '100');
+			text.style.fontFamily = "Times New Roman";
+			text.style.fontSize = '100';
+			text.textContent = "Hello all!";
+			svg.appendChild(text);
+			document.body.appendChild(svg);
+
+			var img = new Image(200, 200);
+			img.src = "../miscellaneous/welcome_photo.jpg";
+			document.body.appendChild(img);
+		</script>
+</html>
