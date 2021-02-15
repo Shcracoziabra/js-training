@@ -203,7 +203,7 @@ writeYourGenres();
 // Hometask 4
 
 //1
-
+/*
 const personalMovieDB = {
     count: 0,
     movies: {},
@@ -250,7 +250,7 @@ const personalMovieDB = {
         while (num < 3) {
             personalMovieDB.genres[num] = prompt(`Ваш любимый жанр под номером ${num + 1}.`, '');
         
-            if (personalMovieDB.genres[num] != '' && personalMovieDB.genres[num] != null) {
+            if (personalMovieDB.genres[num] !== '' && personalMovieDB.genres[num] != null) {
                 
             } else {
                 num--;
@@ -283,6 +283,8 @@ personalMovieDB.toggleVisibleMyDB();
 
 personalMovieDB.writeYourGenres();
 
-personalMovieDB.genres.forEach(function(genre, i) {
+personalMovieDB.genres.forEach((genre, i) => {
     console.log(`Любимый жанр #${i + 1} - это ${genre}`);
 });
+*/
+// from decimal to binary
