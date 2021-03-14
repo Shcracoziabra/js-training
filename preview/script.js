@@ -1,44 +1,32 @@
 'use strict';
+// touchstart
+// touchmove
+// touchend
+// touchenter
+// touchleave
+// touchcancel
 
-const btns = document.querySelectorAll('button'),
-      overlay = document.querySelector('.overlay');
+window.addEventListener('DOMContentLoaded', () => {
+    const box =  document.querySelector('.box');
+    box.addEventListener('touchstart', (e) => {
+        e.preventDefault();
 
+        console.log('Start');
+        
+    });
+    /* box.addEventListener('touchmove', (e) => {
+        e.preventDefault();
 
-/* btn.onclick = function() {
-    alert('Click');
-}; */
+        console.log('Move');
+        console.log(e.targetTouches[0].pageX);
+    });
+    box.addEventListener('touchend', (e) => {
+        e.preventDefault();
 
-/* btn.addEventListener('click', () => {
-    alert('Click');
-});
+        console.log('End');
+    }); */
 
-btn.addEventListener('click', () => {
-    alert('Second Click');
-}); */
-
-let i=0;
-
-const deleteElement = (e) => {
-    console.log(e.currentTarget);
-    console.log(e.type);
-
-    /* i++;
-    if(i == 1){
-        btn.removeEventListener('click', deleteElement);
-    } */
-
-};
-
-/* btn.addEventListener('click', deleteElement);
-overlay.addEventListener('click', deleteElement); */
-
-const link = document.querySelector('a');
-
-link.addEventListener('click', function (event) {
-    event.preventDefault();
-    console.log(event.target);
-});
-
-btns.forEach(btn => {
-   btn.addEventListener('click', deleteElement, {once: true});
+    // touches
+    // targetTouches
+    // changedTouches
 });
