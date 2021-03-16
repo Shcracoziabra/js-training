@@ -145,7 +145,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    //const modalTimerId = setTimeout(openModal, 5000);
+    const modalTimerId = setTimeout(openModal, 5000);
 
     function showModalByScroll() {
         let endOfPage = Math.round(window.pageYOffset + document.documentElement.clientHeight);
@@ -158,5 +158,67 @@ window.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', showModalByScroll);
 
+    class Card { 
+        constructor (src, alt, menuName, menuText, price) {
+
+            this.src = src;
+            this.alt = alt;
+            this.menuName = menuName;
+            this.menuText = menuText;
+            this.price = price;
+            this.transfer = 27;
+            this.changeToUAH();
+        }
+        changeToUAH() {
+            this.price = this.price * this.transfer;
+        }
+
+        render() {
+            const container = document.querySelector('.menu__field .container');
+            const item = document.createElement('div');
+            const img = document.createElement('img');
+            const title = document.createElement('h3');
+            const descr = document.createElement('div');
+            const divider = document.createElement('div');
+            const priceDiv = document.createElement('div');
+            const cost = document.createElement('div');
+            const total = document.createElement('div');
+            const span = document.createElement('span');
+
+            item.classList.add('menu__item');
+            img.setAttribute('src', this.src);
+            img.setAttribute('alt', this.alt);
+            title.classList.add('menu__item-subtitle');
+            descr.classList.add('menu__item-descr');
+            divider.classList.add('menu__item-divider');
+            priceDiv.classList.add('menu__item-price');
+            cost.classList.add('menu__item-cost');
+            total.classList.add('menu__item-total');
+
+            title.innerHTML = `Меню "${this.menuName}"`;
+            descr.innerHTML = this.menuText;
+            cost.innerHTML = 'Цена:';
+            span.innerHTML = this.price;        
+            
+            container.append(item);
+            item.append(img, title, descr, divider, priceDiv);
+            priceDiv.append(cost, total);
+            total.append(span, 'грн/день');
+        }
+    }
+    // first card
+    const firstText = 'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!';
+
+    new Card ("img/tabs/vegy.jpg", "vegy", "Фитнес", firstText, 9).render();
+
+    // second card
+    const secondText = 'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!';
+
+    new Card ("img/tabs/elite.jpg", "elite", "Премиум", secondText, 16).render();
+
+    // third card
+    const thirdText = 'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.';
+
+    new Card ("img/tabs/post.jpg", "post", "Постное", thirdText, 12).render();
 
 });
