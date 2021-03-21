@@ -104,7 +104,7 @@ const double = a => a * 2;
 
 // Lecture 47
 
-class Rectangle {
+/* class Rectangle {
     constructor(height, width) {
         this.height = height;
         this.width = width;
@@ -129,10 +129,60 @@ class ColoredRectangleWithText extends Rectangle {
 
 const div = new ColoredRectangleWithText(25, 10, 'Hello World', 'red');
 div.showMyProps();
-console.log(div.calcArea());
+console.log(div.calcArea()); */
+
 /* const square = new Rectangle(10, 10);
 const long = new Rectangle(20, 100);
 console.log(square.calcArea());
 console.log(long.calcArea()); */
 
+const objWithArr = {
+    name: 'Alex',
+    tel: '+744444444',
+    parents: []
+};
 
+const simple = {
+    name: 'Alex',
+    tel: '+744444444'
+};
+
+const persone = {
+    name: 'Alex',
+    tel: '+744444444',
+    parents: {
+        mom: 'Olga',
+        dad: 'Dima'
+    }
+};
+//console.log(JSON.stringify(persone));
+//console.log(JSON.parse(JSON.stringify(persone)));
+const me = {...persone}; // shallow copy, does not copy objects that refers to the main object
+const clone = JSON.parse(JSON.stringify(persone)); // deep copy
+persone.name = 'Tania';
+
+persone.parents.mom = 'Ann';
+
+
+
+const howToCopy = function(myObj) {
+    if (Object.values(myObj).some(el => typeof(el) === 'object')) {
+        console.log('Do deep copy');
+    } else {
+        console.log('Do shallow copy'); 
+    }
+};
+
+
+// Difference in shallow and deep copying
+console.log(persone);
+console.log(clone);
+console.log(me);
+
+howToCopy(persone);
+howToCopy(objWithArr);
+howToCopy(simple);
+
+
+//console.log(clone);
+//console.log(persone);
